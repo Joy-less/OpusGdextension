@@ -38,22 +38,28 @@ Opus GDExtension has a baseline of Godot 4.4 and aims to support every platform 
 
 Note: Every supported platform has binaries for single (but not double) precision and debug/release mode.
 
-| Platform | Supported |
-|---|---|
-| Windows x64 | ✅ |
-| Windows x32 | ✅ |
-| Windows ARM64 | ✅ |
-| Linux x64 | ✅ |
-| Linux x32 | ✅ |
-| Linux ARM64 | ✅ |
-| Linux ARM32 | ✅ |
-| macOS Universal | ✅ |
-| Android x64 | ✅ |
-| Android x32 | ✅ |
-| Android ARM64 | ✅ |
-| Android ARM32 | ✅ |
-| iOS ARM64 | ✅ |
-| Web WASM32 | ✅ |
+| Platform | Supported | SIMD Optimizations |
+|---|---| --- |
+| Windows x64 | ✅ | ✅ |
+| Windows x32 | ✅ | ✅ |
+| Windows ARM64 | ✅ | ❌ (1) |
+| Linux x64 | ✅ | ✅ |
+| Linux x32 | ✅ | ✅ |
+| Linux ARM64 | ✅ | ✅ |
+| Linux ARM32 | ✅ | ❌ (2) |
+| macOS Universal | ✅ | ✅ |
+| Android x64 | ✅ | ✅ |
+| Android x32 | ✅ | ✅ |
+| Android ARM64 | ✅ | ✅ |
+| Android ARM32 | ✅ | ❌ (2) |
+| iOS ARM64 | ✅ | ✅ |
+| Web WASM32 | ✅ | ❌ (3) |
+
+*(1) Windows ARM64 uses setup-mingw, which does not provide `arm_neon.h`.*
+
+*(2) ARM32 is not guaranteed to have NEON, so those optimizations are not included.*
+
+*(3) WASM cannot use processor-specific optimizations.*
 
 ## Proposal
 
