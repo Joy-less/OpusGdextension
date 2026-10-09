@@ -140,14 +140,16 @@ EditorInspectorPluginAudioStreamOpusEditor::EditorInspectorPluginAudioStreamOpus
 	_play_button = memnew(Button);
 	hbox->add_child(_play_button);
 	_play_button->set_flat(true);
-	_play_button->set_focus_mode(FOCUS_NONE);
+	_play_button->set_focus_mode(Control::FOCUS_ACCESSIBILITY);
 	_play_button->connect(SNAME_pressed, callable_mp(this, &EditorInspectorPluginAudioStreamOpusEditor::_play));
+	_play_button->set_accessibility_name("Play");
 
 	_stop_button = memnew(Button);
 	hbox->add_child(_stop_button);
 	_stop_button->set_flat(true);
-	_stop_button->set_focus_mode(FOCUS_NONE);
+	_stop_button->set_focus_mode(Control::FOCUS_ACCESSIBILITY);
 	_stop_button->connect(SNAME_pressed, callable_mp(this, &EditorInspectorPluginAudioStreamOpusEditor::_stop));
+	_stop_button->set_accessibility_name("Stop");
 
 	_current_label = memnew(Label);
 	_current_label->set_horizontal_alignment(HORIZONTAL_ALIGNMENT_RIGHT);

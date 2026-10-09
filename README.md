@@ -34,7 +34,7 @@ If you're looking to save as much space as possible, Opus is very high quality a
 
 ## Supported Platforms
 
-Opus GDExtension has a baseline of Godot 4.4 and aims to support every platform supported by Godot 4.4.
+Opus GDExtension has a baseline of Godot 4.5 and aims to support every platform supported by Godot 4.5.
 
 Note: Every supported platform has binaries for single (but not double) precision and debug/release mode.
 
