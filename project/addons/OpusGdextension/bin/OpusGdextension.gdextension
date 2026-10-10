@@ -1,7 +1,7 @@
 [configuration]
 
 entry_symbol = "opus_gdextension_init"
-compatibility_minimum = "4.4"
+compatibility_minimum = "4.5"
 reloadable = false
 
 [icons]
@@ -33,17 +33,17 @@ windows.arm64.single.release = "./windows/OpusGdextension.windows.template_relea
 macos.single.debug = "./macos/libOpusGdextension.macos.template_debug.dylib"
 macos.single.release = "./macos/libOpusGdextension.macos.template_release.dylib"
 
-android.x86_64.single.debug = "./android/libOpusGdextension.android.x86_64.template_debug.so"
-android.x86_64.single.release = "./android/libOpusGdextension.android.x86_64.template_release.so"
+android.x86_64.single.debug = "./android/libOpusGdextension.android.template_debug.x86_64.so"
+android.x86_64.single.release = "./android/libOpusGdextension.android.template_release.x86_64.so"
 
-android.x86_32.single.debug = "./android/libOpusGdextension.android.x86_32.template_debug.so"
-android.x86_32.single.release = "./android/libOpusGdextension.android.x86_32.template_release.so"
+android.x86_32.single.debug = "./android/libOpusGdextension.android.template_debug.x86_32.so"
+android.x86_32.single.release = "./android/libOpusGdextension.android.template_release.x86_32.so"
 
-android.arm64.single.debug = "./android/libOpusGdextension.android.arm64.template_debug.so"
-android.arm64.single.release = "./android/libOpusGdextension.android.arm64.template_release.so"
+android.arm64.single.debug = "./android/libOpusGdextension.android.template_debug.arm64.so"
+android.arm64.single.release = "./android/libOpusGdextension.android.template_release.arm64.so"
 
-android.arm32.single.debug = "./android/libOpusGdextension.android.arm32.template_debug.so"
-android.arm32.single.release = "./android/libOpusGdextension.android.arm32.template_release.so"
+android.arm32.single.debug = "./android/libOpusGdextension.android.template_debug.arm32.so"
+android.arm32.single.release = "./android/libOpusGdextension.android.template_release.arm32.so"
 
 ios.arm64.single.debug = "./ios/libOpusGdextension.ios.template_debug.arm64.dylib"
 ios.arm64.single.release = "./ios/libOpusGdextension.ios.template_release.arm64.dylib"
