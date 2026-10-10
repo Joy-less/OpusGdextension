@@ -59,25 +59,25 @@ env.Append(CPPPATH=[
     "#thirdparty/libopusfile/",
     "#thirdparty/libopusfile/opus/",
     "#thirdparty/libopusfile/src/",
-
     "#thirdparty/libopus/celt/x86/",
     "#thirdparty/libopus/silk/x86/",
     "#thirdparty/libopus/silk/fixed/x86/",
     "#thirdparty/libopus/silk/float/x86/",
-
     "#thirdparty/libopus/celt/arm/",
     "#thirdparty/libopus/silk/arm/",
     "#thirdparty/libopus/silk/fixed/arm/",
 ])
 
-sources = Glob("src/*.cpp") \
-    + Glob("#thirdparty/libogg/*.c") \
-    + Glob("#thirdparty/libogg/ogg/*.c") \
-    + Glob("#thirdparty/libopus/src/*.c") \
-    + Glob("#thirdparty/libopus/celt/*.c") \
-    + Glob("#thirdparty/libopus/silk/*.c") \
-    + Glob("#thirdparty/libopus/silk/float/*.c") \
+sources = (
+    Glob("src/*.cpp")
+    + Glob("#thirdparty/libogg/*.c")
+    + Glob("#thirdparty/libogg/ogg/*.c")
+    + Glob("#thirdparty/libopus/src/*.c")
+    + Glob("#thirdparty/libopus/celt/*.c")
+    + Glob("#thirdparty/libopus/silk/*.c")
+    + Glob("#thirdparty/libopus/silk/float/*.c")
     + Glob("#thirdparty/libopusfile/src/*.c")
+)
 
 # Remove /fp:strict flag
 if env["CCFLAGS"]:
@@ -106,48 +106,44 @@ if env["platform"] == "windows" and env["arch"] in ["arm32", "arm64"]:
 elif env["arch"] == "x86_32":
     env.Append(CPPDEFINES=["OPUS_X32_OPT"])
     sources += [
-        #"#thirdparty/libopus/celt/x86/celt_lpc_sse4_1.c", # SSE4.1 is disabled for x32
-        #"#thirdparty/libopus/celt/x86/pitch_avx.c", # AVX2 is disabled for x32
+        # "#thirdparty/libopus/celt/x86/celt_lpc_sse4_1.c", # SSE4.1 is disabled for x32
+        # "#thirdparty/libopus/celt/x86/pitch_avx.c", # AVX2 is disabled for x32
         "#thirdparty/libopus/celt/x86/pitch_sse.c",
         "#thirdparty/libopus/celt/x86/pitch_sse2.c",
-        #"#thirdparty/libopus/celt/x86/pitch_sse4_1.c", # SSE4.1 is disabled for x32
+        # "#thirdparty/libopus/celt/x86/pitch_sse4_1.c", # SSE4.1 is disabled for x32
         "#thirdparty/libopus/celt/x86/vq_sse2.c",
         "#thirdparty/libopus/celt/x86/x86_celt_map.c",
         "#thirdparty/libopus/celt/x86/x86cpu.c",
-
-        #"#thirdparty/libopus/silk/x86/NSQ_del_dec_avx2.c", # AVX2 is disabled for x32
-        #"#thirdparty/libopus/silk/x86/NSQ_del_dec_sse4_1.c", # SSE4.1 is disabled for x32
-        #"#thirdparty/libopus/silk/x86/NSQ_sse4_1.c", # SSE4.1 is disabled for x32
-        #"#thirdparty/libopus/silk/x86/VAD_sse4_1.c", # SSE4.1 is disabled for x32
-        #"#thirdparty/libopus/silk/x86/VQ_WMat_EC_sse4_1.c", # SSE4.1 is disabled for x32
+        # "#thirdparty/libopus/silk/x86/NSQ_del_dec_avx2.c", # AVX2 is disabled for x32
+        # "#thirdparty/libopus/silk/x86/NSQ_del_dec_sse4_1.c", # SSE4.1 is disabled for x32
+        # "#thirdparty/libopus/silk/x86/NSQ_sse4_1.c", # SSE4.1 is disabled for x32
+        # "#thirdparty/libopus/silk/x86/VAD_sse4_1.c", # SSE4.1 is disabled for x32
+        # "#thirdparty/libopus/silk/x86/VQ_WMat_EC_sse4_1.c", # SSE4.1 is disabled for x32
         "#thirdparty/libopus/silk/x86/x86_silk_map.c",
-
-        #"#thirdparty/libopus/silk/float/x86/inner_product_FLP_avx2.c", # AVX2 is disabled for x32
+        # "#thirdparty/libopus/silk/float/x86/inner_product_FLP_avx2.c", # AVX2 is disabled for x32
     ]
 elif env["arch"] == "x86_64":
     env.Append(CPPDEFINES=["OPUS_X64_OPT"])
     sources += [
         "#thirdparty/libopus/celt/x86/celt_lpc_sse4_1.c",
-        #"#thirdparty/libopus/celt/x86/pitch_avx.c", # AVX2 is disabled for x64
+        # "#thirdparty/libopus/celt/x86/pitch_avx.c", # AVX2 is disabled for x64
         "#thirdparty/libopus/celt/x86/pitch_sse.c",
         "#thirdparty/libopus/celt/x86/pitch_sse2.c",
         "#thirdparty/libopus/celt/x86/pitch_sse4_1.c",
         "#thirdparty/libopus/celt/x86/vq_sse2.c",
         "#thirdparty/libopus/celt/x86/x86_celt_map.c",
         "#thirdparty/libopus/celt/x86/x86cpu.c",
-
-        #"#thirdparty/libopus/silk/x86/NSQ_del_dec_avx2.c", # AVX2 is disabled for x64
+        # "#thirdparty/libopus/silk/x86/NSQ_del_dec_avx2.c", # AVX2 is disabled for x64
         "#thirdparty/libopus/silk/x86/NSQ_del_dec_sse4_1.c",
         "#thirdparty/libopus/silk/x86/NSQ_sse4_1.c",
         "#thirdparty/libopus/silk/x86/VAD_sse4_1.c",
         "#thirdparty/libopus/silk/x86/VQ_WMat_EC_sse4_1.c",
         "#thirdparty/libopus/silk/x86/x86_silk_map.c",
-
-        #"#thirdparty/libopus/silk/float/x86/inner_product_FLP_avx2.c", # AVX2 is disabled for x64
+        # "#thirdparty/libopus/silk/float/x86/inner_product_FLP_avx2.c", # AVX2 is disabled for x64
     ]
 elif env["arch"] == "arm32":
     env.Append(CPPDEFINES=["OPUS_ARM32_OPT"])
-    #sources += []
+    # sources += []
 elif env["arch"] == "arm64":
     env.Append(CPPDEFINES=["OPUS_ARM64_OPT"])
     sources += [
@@ -155,7 +151,6 @@ elif env["arch"] == "arm64":
         "#thirdparty/libopus/celt/arm/armcpu.c",
         "#thirdparty/libopus/celt/arm/celt_neon_intr.c",
         "#thirdparty/libopus/celt/arm/pitch_neon_intr.c",
-
         "#thirdparty/libopus/silk/arm/arm_silk_map.c",
         "#thirdparty/libopus/silk/arm/biquad_alt_neon_intr.c",
         "#thirdparty/libopus/silk/arm/LPC_inv_pred_gain_neon_intr.c",
