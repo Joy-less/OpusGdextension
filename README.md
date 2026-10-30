@@ -27,7 +27,7 @@ Opus is transparent (perceptually lossless) at 128 kbits/s for music and 32 kbit
 If you're looking to save as much space as possible, Opus is very high quality at 96 kbits/s for music.
 
 | Format | Transparent Bitrate (Music) | Transparent Bitrate (Voice) |
-|---|---|---|
+| --- | --- | --- |
 | Opus | 128 kbits/s | 32 kbits/s mono |
 | Ogg Vorbis | 160 kbits/s | 64+ kbits/s mono |
 | MP3 | 192 kbits/s | 96+ kbits/s mono |
@@ -39,7 +39,7 @@ Opus GDExtension has a baseline of Godot 4.5 and aims to support every platform 
 Note: Every supported platform has binaries for single (but not double) precision and debug/release mode.
 
 | Platform | Supported | SIMD Optimizations |
-|---|---| --- |
+| --- | --- | --- |
 | Windows x64 | ✅ | ✅ |
 | Windows x32 | ✅ | ✅ |
 | Windows ARM64 | ✅ | ❌ (1) |
