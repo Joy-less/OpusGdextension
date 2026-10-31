@@ -12,7 +12,10 @@ using namespace godot;
 namespace opus_gdextension {
 
 PackedStringArray ResourceFormatSaverOpus::_get_recognized_extensions(const Ref<Resource> &p_resource) const {
-	return { "oggopusstr_gdextension" };
+	if (p_resource.is_valid() && p_resource->is_class("AudioStreamOpus")) {
+		return { "oggopusstr_gdextension" };
+	}
+	return {};
 }
 
 bool ResourceFormatSaverOpus::_recognize(const Ref<Resource> &p_resource) const {
